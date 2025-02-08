@@ -22,7 +22,8 @@ const Signin = () => {
         try {
             const response = await signin(formData)
             console.log("Singnin successful", response.data)
-            localStorage.setItem("author", response.data.result._id.toString())
+            //console.log("Token is", response.data.token)          To check whether token is being stored locally
+            localStorage.setItem("token", response.data.token)
             navigate('/')
         } catch (error) {
             console.log("Signin failed: ", error)

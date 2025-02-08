@@ -28,7 +28,7 @@ const Signup = () => {
             console.log("Singnnup successful", response.data)
             navigate('/signin')
         } catch (error) {
-            console.log("Signuup failed: ", error)
+            console.log("Signup failed: ", error)
             setFormData({ name: '', email: '', password: '', confirmPassword: '' })
         }
 

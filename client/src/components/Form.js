@@ -22,8 +22,10 @@ const Form = () => {
 
     const handleSubmit = async(e) => {
        try {
-         const author = localStorage.getItem("author")
-         const response = await createBlog({...formData, author, tags})
+         const token = localStorage.getItem("token")
+         console.log("Formjs 1")
+         const response = await createBlog({...formData, tags}, token);  
+         console.log("Formjs 2")
          console.log("Blog Created Successfully",response.data)
          window.location.reload()
         //  navigate('/') 

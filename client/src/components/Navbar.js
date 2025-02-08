@@ -28,6 +28,10 @@ const Navbar = () => {
       navigate('/signin')
     }
 
+    const handleSignOut = () => {
+        localStorage.removeItem('token');
+        navigate('/signin')
+    }
     
     return (
         <div>
@@ -70,6 +74,22 @@ const Navbar = () => {
                     >Signin
                         
                     </Button>
+
+                    <Button sx={{
+                        color: 'white',
+                        bgcolor: 'black',
+                        borderRadius: 10,
+                        '&:hover': {
+                            bgcolor: '#FFD42F',
+                            color: 'black'
+                        }
+                    }}
+                        variant='contained'
+                        onClick={handleSignOut}    
+                    >Sign out
+                        
+                    </Button>
+
                 </Box>
             </Box>
 
