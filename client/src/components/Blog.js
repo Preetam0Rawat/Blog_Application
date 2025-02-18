@@ -38,14 +38,16 @@ export default function Blog({data}) {
 
   const handleDelete = async() => {
     try {
-      const response = await deleteBlog(data._id)
+      const token = localStorage.getItem("token")
+      const response = await deleteBlog(data._id, token)
       console.log("blog deleted successfully", response.data)
-      if(response.status === 200){
-        window.location.reload()
-      }
+      // if(response.status === 200){
+      //   window.location.reload()
+      // }
       //navigate('/')      not working
     } catch (error) {
         console.log("Deletion failed" , error)
+        alert(error.response.data.mssg)
       }
   }
 

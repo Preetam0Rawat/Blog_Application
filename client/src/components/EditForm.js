@@ -18,12 +18,18 @@ const EditForm = ({data}) => {
 
     const handleSubmit = async() => {
        try {
+        console.log("EditForm 0")
         const id = data._id
-         const response = await editBlog(id, {...formData, tags})
+        console.log("EditForm 1")
+        const token = localStorage.getItem("token")
+        console.log("EditForm 2")
+         const response = await editBlog(id, token,{...formData, tags})
+         console.log("EditForm 3")
          console.log("Blog updated successfuly", response.data)
-        window.location.reload()
-       } catch (error) {
-         console.log("Failed ", error.message)
+         console.log("EditForm 4")
+        //window.location.reload()
+    } catch (error) {
+         console.log("Updation Failed ", error.message)
        }
     }
 

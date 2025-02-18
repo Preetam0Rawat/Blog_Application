@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
+import Blog from '../models/blog.js'
 
-const auth = async(req , res , next) =>{
+export const auth = async(req , res , next) =>{
     try{
                             console.log("Auth 1")
         const authHeader = req.header('Authorization')
@@ -9,7 +10,7 @@ const auth = async(req , res , next) =>{
 
         if(!authHeader || authHeader.split(' ')[1] === 'null'){
                             console.log("Auth 3")
-            return res.status(401).json({mssg : "Token missing"})  //Unauthorized
+            return res.status(401).json({mssg : "You are unauthorized"})  //Unauthorized
         }
 
         // In jwt we don't use Basic bbut Bearer
@@ -43,4 +44,18 @@ const auth = async(req , res , next) =>{
 
 }
 
-export default auth;
+export const editAndDeleteBlogAuth = async(req, res, next)=> {
+    try {
+                                console.log("Blog auth 1")
+        const {id} = req.params; // Blog ID
+        const blog = await Blog.findById(id);
+
+        if (blog.author.toString() !== req.userId) {
+            return res.status(403).json({ mssg: "Unauthorized: You can only edit n delete your own blog" });
+        }
+                                console.log("Blog auth 2 and on to next")
+        next(); // Proceed to update if authorized
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error });
+    }
+}
