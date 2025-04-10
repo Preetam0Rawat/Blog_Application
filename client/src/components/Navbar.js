@@ -1,27 +1,27 @@
 import React from 'react'
-import { Box, Button, Modal, Typography } from '@mui/material'
-import Form from './Form'
+import { Box, Button, Typography } from '@mui/material'
+//import Form from './Form'
 import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-    };
+    // const style = {
+    //     position: 'absolute',
+    //     top: '50%',
+    //     left: '50%',
+    //     transform: 'translate(-50%, -50%)',
+    //     width: 400,
+    //     bgcolor: 'background.paper',
+    //     border: '2px solid #000',
+    //     boxShadow: 24,
+    //     p: 4,
+    // };
 
     const token = localStorage.getItem("token")
 
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    // const [open, setOpen] = React.useState(false);
+    // const handleOpen = () => setOpen(true);
+    // const handleClose = () => setOpen(false);
 
 
     const navigate = useNavigate()
@@ -32,6 +32,11 @@ const Navbar = () => {
     const handleSignOut = () => {
         localStorage.removeItem('token');
         navigate('/signin')
+    }
+
+
+    const handleCreateBlog = () =>{
+        navigate('/createForm')
     }
 
     return (
@@ -50,7 +55,6 @@ const Navbar = () => {
                     display: 'flex',
                     justifyContent: 'right',
                     alignItems: 'center',
-                    boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
                     paddingY: '20px',
                 paddingX: '20px'
 
@@ -66,7 +70,8 @@ const Navbar = () => {
                         }
                     }}
                         variant='contained'
-                        onClick={handleOpen}
+                        // onClick={handleOpen}
+                        onClick={handleCreateBlog}
                     >Create Blog
                     </Button>
                    
@@ -109,7 +114,10 @@ const Navbar = () => {
                 </Box>
             </Box>
 
-            <Modal
+
+
+
+            {/* <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -118,7 +126,10 @@ const Navbar = () => {
                 <Box sx={style}>
                     <Form />
                 </Box>
-            </Modal>
+            </Modal> */}
+        
+        
+        
         </div>
     )
 }

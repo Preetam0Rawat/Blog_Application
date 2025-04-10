@@ -18,7 +18,7 @@ const Home = () => {
   const handleDelete = (tagTodelete) => setTags(tags.filter((tag) => tag !== tagTodelete))
 
   useEffect(() => {
-    const getBlogs = async() => {
+    const getBlogs = async () => {
       try {
         const response = await getAllBlogs()
         setBlogs(response.data)
@@ -29,16 +29,16 @@ const Home = () => {
     }
 
     getBlogs()
-  }, []) 
+  }, [])
 
-  const handleSearch = async()=>{
+  const handleSearch = async () => {
     try {
-      if(search.trim() || tags.length > 0){
-        const response  = await getBlogBysearch({search, tags: tags.join(',')})
+      if (search.trim() || tags.length > 0) {
+        const response = await getBlogBysearch({ search, tags: tags.join(',') })
         console.log("Search sucessful", response.data)
         setSearchResult(response.data.blogs)
         navigate(`/blog/search?searchQuery=${search || 'none'}&tags=${tags.join(',') || 'none'}`)
-      }else{
+      } else {
         navigate('/')
       }
     } catch (error) {
@@ -85,32 +85,32 @@ const Home = () => {
         </Box>
 
         <Grid container alignItems='stretch' spacing={2} mt={4}>
-  {searchResult.length > 0 ? (
-    <>
-      <Typography variant='h5'>Search Results:{searchResult.length}</Typography>
-      <Grid container alignItems='stretch' spacing={2}>
-        {searchResult.map((blog) => (  
-          <Grid item key={blog._id} xs={12} sm={6} md={6} lg={4}>
-            <Blog data={blog} />
-          </Grid>
-        ))}
-      </Grid>
-    </>
-  ) : (
-    <>
-      <Typography variant='h5'>All Blogs</Typography>
-      <Grid container alignItems='stretch' spacing={2}>
-        {blogs.map((blog) => (
-          <Grid item key={blog._id} xs={12} sm={6} md={6} lg={4}>
-            <Blog data={blog} />
-          </Grid>
-        ))}
-      </Grid>
-    </>
-  )}
-</Grid>
- 
-      </Box> 
+          {searchResult.length > 0 ? (
+            <>
+              <Typography variant='h5'>Search Results:{searchResult.length}</Typography>
+              <Grid container alignItems='stretch' spacing={2}>
+                {searchResult.map((blog) => (
+                  <Grid item key={blog._id} xs={12} sm={6} md={6} lg={4}>
+                    <Blog data={blog} />
+                  </Grid>
+                ))}
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Typography variant='h5'>All Blogs</Typography>
+              <Grid container alignItems='stretch' spacing={2}>
+                {blogs.map((blog) => (
+                  <Grid item key={blog._id} xs={12} sm={6} md={6} lg={4}>
+                    <Blog data={blog} />
+                  </Grid>
+                ))}
+              </Grid>
+            </>
+          )}
+        </Grid>
+
+      </Box>
     </div>
   )
 }
