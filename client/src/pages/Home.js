@@ -24,7 +24,8 @@ const Home = () => {
         setBlogs(response.data)
         console.log("Getting all blogs successful", response.data)
       } catch (error) {
-        console.log("Failed", error)
+        //console.log("Failed", error)
+        alert(error.response.data.mssg)
       }
     }
 
@@ -40,9 +41,11 @@ const Home = () => {
         navigate(`/blog/search?searchQuery=${search || 'none'}&tags=${tags.join(',') || 'none'}`)
       } else {
         navigate('/')
+        alert("No results found")
       }
     } catch (error) {
-      console.log("Search failed ", error.message)
+      //console.log("Search failed ", error.message)
+     alert(error.response.data.mssg)
     }
   }
 

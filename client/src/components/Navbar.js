@@ -1,28 +1,14 @@
 import React from 'react'
 import { Box, Button, Typography } from '@mui/material'
-//import Form from './Form'
 import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
-    // const style = {
-    //     position: 'absolute',
-    //     top: '50%',
-    //     left: '50%',
-    //     transform: 'translate(-50%, -50%)',
-    //     width: 400,
-    //     bgcolor: 'background.paper',
-    //     border: '2px solid #000',
-    //     boxShadow: 24,
-    //     p: 4,
-    // };
+ 
 
     const token = localStorage.getItem("token")
 
 
-    // const [open, setOpen] = React.useState(false);
-    // const handleOpen = () => setOpen(true);
-    // const handleClose = () => setOpen(false);
-
+   
 
     const navigate = useNavigate()
     const handleSignin = () => {
@@ -112,24 +98,7 @@ const Navbar = () => {
                             </Button>
                         )}
                 </Box>
-            </Box>
-
-
-
-
-            {/* <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    <Form />
-                </Box>
-            </Modal> */}
-        
-        
-        
+            </Box>      
         </div>
     )
 }

@@ -23,14 +23,12 @@ const CreateForm = () => {
     const handleSubmit = async(e) => {
        try {
          const token = localStorage.getItem("token")
-         console.log("Formjs 1")
          const response = await createBlog({...formData, tags}, token);  
-         console.log("Formjs 2")
          console.log("Blog Created Successfully",response.data)
-        //  window.location.reload()
           navigate('/') 
         } catch (error) {
-         console.log("Creation failed", error)
+         //console.log("Creation failed", error)
+         alert(error.response.data.mssg)
          setFormData({title : '', description : '', selectedFile: ''})
        }
     }
