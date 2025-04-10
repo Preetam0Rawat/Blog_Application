@@ -26,7 +26,8 @@ const Signin = () => {
             localStorage.setItem("token", response.data.token)
             navigate('/')
         } catch (error) {
-            console.log("Signin failed: ", error)
+            //console.log("Signin failed: ", error)
+            alert(error.response.data.mssg)
             setFormData({email :'', password : ''})
         }
        

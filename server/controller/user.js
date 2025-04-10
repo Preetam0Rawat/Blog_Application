@@ -10,7 +10,7 @@ export const signup = async(req, res) =>{
           const existing_user = await User.findOne({email})
           if(existing_user){
 
-            return res.status(400).json({mssg : "User already exists"})
+            return res.status(400).json({mssg : "User already exists"})                      //Giving stauts code is neccesary so that the front end knows whether to run try block or catch block
           }
 
           if(password != confirmPassword){

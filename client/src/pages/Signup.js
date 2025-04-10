@@ -25,10 +25,11 @@ const Signup = () => {
     const handleSignup = async(e) => {
         try {
             const response = await signup(formData)
-            console.log("Singnnup successful", response.data)
+            console.log("Singnup successful", response.data)
             navigate('/signin')
         } catch (error) {
-            console.log("Signup failed: ", error)
+            //console.log("Signup failed: ", error)
+            alert(error.response.data.mssg)
             setFormData({ name: '', email: '', password: '', confirmPassword: '' })
         }
 

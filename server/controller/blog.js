@@ -2,15 +2,12 @@ import Blog from "../models/blog.js"
 import User from "../models/user.js";
 
 export const createBlog = async(req, res) =>{
-                            console.log("CB 1")
+                           
 
     const {title, description, selectedFile, tags} = req.body;
     const author = req.userId
-                            console.log("CB 2")
-                            console.log("auhtor", author)
-
+                            
     try{
-
            const existing_user = await User.findById(author)
 
            if(!existing_user){

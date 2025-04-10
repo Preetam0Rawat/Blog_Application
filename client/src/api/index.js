@@ -13,7 +13,6 @@ export const createBlog = (formData, token) => {
     });
 }
 export const getAllBlogs = () => API.get('/blog/')
-// export const deleteBlog = (id) => API.delete(`/blog/${id}`)  
 
 
 export const deleteBlog = (id, token) =>  {
@@ -24,7 +23,6 @@ export const deleteBlog = (id, token) =>  {
     });
 };
 
-//export const editBlog = (id, authorId, formData) => API.post(`/blog/${id, authorId}`, formData)  
 
 export const editBlog = (id, token, formData) => {
     return API.post(`/blog/${id}`, formData, {
