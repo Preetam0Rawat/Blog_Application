@@ -55,7 +55,7 @@ export const getBlogBySearch = async(req, res) =>{
 
         return res.status(200).json({blogs})
     } catch (error) {
-        return res.status(404).json({mssg : "Search fialed"})
+        return res.status(404).json({mssg : "Search failed"})
     }
 }
 

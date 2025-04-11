@@ -39,7 +39,7 @@ export const editAndDeleteBlogAuth = async(req, res, next)=> {
         const blog = await Blog.findById(id);
 
         if (blog.author.toString() !== req.userId) {
-            return res.status(403).json({ mssg: "Unauthorized: You can only edit n delete your own blog" });
+            return res.status(403).json({ mssg: "Unauthorized: You can only edit and delete your own blog" });
         }
                                 
         next(); // Proceed to update if authorized
