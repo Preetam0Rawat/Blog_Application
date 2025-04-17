@@ -44,12 +44,10 @@ export default function Blog({data}) {
           <Typography gutterBottom variant="h5" component="div">
            {data.title}
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            {data.description}
-          </Typography>
-          <Typography color='Text.secondary'
-          sx = {{fontSize : '20px', lineHeight : '25px', margin : '10px 0', fontWeight : '400'}}>
-            {data.tags.map((tag)=> `#${tag}`)}
+         
+          <Typography color='grey'
+          sx = {{fontSize : '18px', lineHeight : '25px', margin : '10px 0', fontWeight : '1000'}}>
+            {data.tags.map((tag)=> `#${tag} `)}
           </Typography>
         </CardContent>
         <CardActions>
