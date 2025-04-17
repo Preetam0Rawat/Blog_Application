@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
-import siimage from '../images/signin.png'
+import suimage from '../images/signup.png'
 import { signup } from '../api/index.js'
 
 const Signup = () => {
@@ -37,11 +37,11 @@ const Signup = () => {
 
     return (
         <Box display='flex' height='100vh'>
-            <Box flex='1' display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-                <img src={siimage} style={{ maxHeight: '60vh', maxWidth: '100%' }} alt='siimage' />
+            <Box flex='1' display='flex' flexDirection='column'>
+                <img src={suimage} style={{ maxHeight: '100vh', maxWidth: '100vw'}} alt='siimage' />
             </Box>
-            <Box flex='1' display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-                <Typography fontSize='50px' fontWeight='bold'>Sign up</Typography>
+            <Box flex='1' display='flex' flexDirection='column' justifyContent='center'>
+                <Typography fontSize='50px' fontWeight='bold' width={'30vw'}>Sign up</Typography>
                 <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' mt={3} width={'30vw'}>
                     <TextField id='name'
                         name='name'

@@ -33,7 +33,7 @@ export default function Blog({data}) {
 
   return (
     <>
-      <Card sx={{ maxWidth: 345, borderRadius: 6, margin: 6 }}
+      <Card sx={{ width: '20vw', height: '45vh', borderRadius: 6, margin: 6 }}
         >
         <CardMedia
           sx={{ height: 240 }}
@@ -51,7 +51,7 @@ export default function Blog({data}) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={handleEditBlog}><EditIcon sx={{ mr: 1 }} />EDIT BlOG</Button>
+          <Button size="small" onClick={handleEditBlog}><EditIcon sx={{ mr: 1}} />EDIT BlOG</Button>
           <Button size='small' onClick={handleClickCard}>  <VisibilityIcon sx={{ mr: 1 }} /> View Blog</Button>
         </CardActions>
       </Card>

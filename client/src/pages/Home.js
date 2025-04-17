@@ -87,14 +87,16 @@ const Home = () => {
           </Button>
         </Box>
 
-        <Grid container alignItems='stretch' spacing={2} mt={4}>
+        <Grid container alignItems='stretch' spacing={1} mt={4}>
           {searchResult.length > 0 ? (
             <>
               <Typography variant='h5'>Search Results:{searchResult.length}</Typography>
-              <Grid container alignItems='stretch' spacing={2}>
+              <Grid container alignItems='stretch' spacing={2} >
                 {searchResult.map((blog) => (
                   <Grid item key={blog._id} xs={12} sm={6} md={6} lg={4}>
-                    <Blog data={blog} />
+                     <Box display='flex' justifyContent='center' >
+                      <Blog data={blog} />
+                    </Box>
                   </Grid>
                 ))}
               </Grid>
@@ -105,7 +107,9 @@ const Home = () => {
               <Grid container alignItems='stretch' spacing={2}>
                 {blogs.map((blog) => (
                   <Grid item key={blog._id} xs={12} sm={6} md={6} lg={4}>
-                    <Blog data={blog} />
+                    <Box display='flex' justifyContent='center' >
+                      <Blog data={blog} />
+                    </Box>
                   </Grid>
                 ))}
               </Grid>

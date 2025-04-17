@@ -35,8 +35,8 @@ const Signin = () => {
 
     return (
         <Box display='flex' height='100vh'>
-            <Box flex='1' display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-                <Typography fontSize='50px' fontWeight='bold'>Sign in</Typography>
+            <Box flex='1' display='flex' flexDirection='column' justifyContent='center' alignItems='flex-end'>
+                <Typography fontSize='50px' fontWeight='bold' width={'30vw'}>Sign in</Typography>
                 <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' mt={3} width={'30vw'}>
                     <TextField id='email'
                         name='email'
@@ -76,8 +76,8 @@ const Signin = () => {
                     </Button>
                 </Box>
             </Box>
-            <Box flex='1' display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-                        <img src={siimage} style={{maxHeight : '60vh', maxWidth : '100%'}} alt='siimage'/>
+            <Box flex='1' display='flex' flexDirection='column'>
+                        <img src={siimage} style={{maxHeight : '100vh', maxWidth : '100vw'}} alt='siimage'/>
             </Box>
         </Box>
     )
